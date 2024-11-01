@@ -2,16 +2,13 @@
 import express from 'express';
 import 'dotenv/config.js';
 
-import db from './db/index.js'
+import mainRoute from './router/index.js'
 
 const app = express();
 const port = process.env.PORT;
 
-import getData from './routes/getData.js'
 
-db.connect();
-app.use('/',getData);
-
+app.use('/',mainRoute)
 app.get('/',(req,res) => {
     res.send('Hello World!');
 })
